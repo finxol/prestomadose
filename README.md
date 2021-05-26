@@ -1,4 +1,7 @@
 # Presto Ma Dose
+
+Outil de recherche automatisée de rendez-vous pour la vaccination contre la COVID-19
+
 ## Utiliser sur Doctolib
 Copier ce code et lancez-le dans la console :
 
