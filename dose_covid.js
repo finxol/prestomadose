@@ -54,7 +54,7 @@ function desktop() {
             let day = dayColumn.querySelector("div.availabilities-day-date").innerText;
             let date = parse_date(day);
 
-            if (date <= new Date("06-05-2021")) {
+            if (date <= new Date("06-14-2021")) {
                 dateButton.click();
     
                 notify(day, dateButton.innerText);
