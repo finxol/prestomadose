@@ -3,6 +3,8 @@
 Outil de recherche automatisée de rendez-vous pour la vaccination contre la COVID-19
 
 ## Utiliser sur Doctolib
+Les instructions ci-dessous permettront de créer un bouton sur le site Doctolib qui lance la recherche automatique de rendez-vous
+
 Copier ce code et lancez-le dans la console :
 
 ```javascript
