@@ -19,11 +19,14 @@ document.body.appendChild(button);
 ```
 
 ### Comment utiliser la console ?
-1. Cliquer sur `F12`
-![F12 Key](img/f12_key.webp)
+1. **Cliquer sur `F12`**
 
-2. Cliquer sur l'onglet console
-![DevTools Console](img/console.webp)
+<img src="img/f12_key.webp" width="60%" alt="F12 Key">
 
-3. Coller le code ci-dessus
-![Coller le code](img/paste.webp)
+2. **Cliquer sur l'onglet console**
+
+<img src="img/console.webp" width="60%" alt="DevTools Console">
+
+3. **Coller le code ci-dessus**
+
+<img src="img/paste.webp" width="60%" alt="Coller le code">
