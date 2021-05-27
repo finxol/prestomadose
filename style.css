@@ -5,7 +5,7 @@ div#prestoMaDose {
     z-index: 11;
     padding: 1rem;
     border-radius: .5rem 0 0;
-    background-color: #ffffff;
+    background-color: #0596de;
 }
 
 div#prestoMaDose.show {
@@ -15,9 +15,10 @@ div#prestoMaDose.show {
 div#prestoMaDose button {
     padding: .5rem 1rem;
     font-size: 1.5rem;
-    border: none;
-    background-color: #0596de;
-    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: .5rem;
+    background-color: #ffffff;
+    color: #0596de;
 }
 
 div#prestoMaDose section {

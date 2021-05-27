@@ -129,10 +129,13 @@ function hide_selection(element) {
 };
 
 
-let css = document.createElement('link');
-css.setAttribute('rel', 'stylesheet');
-css.src = "https://raw.githack.com/user038418/prestomadose/main/style.css";
-document.head.appendChild(css);
+
+
+let link = document.createElement('link');
+link.rel = 'stylesheet'; 
+link.type = 'text/css';
+link.href = 'https://raw.githack.com/user038418/prestomadose/main/style.css'; 
+document.head.appendChild(link);
 
 let label = document.createElement('label');
 label.for = "date";
@@ -150,19 +153,11 @@ startButton.onclick = () => {
 };
 startButton.innerText = "Lancer la recherche";
 
-let section = document.createElement('section');
-section.appendChild(label);
-section.appendChild(input);
-section.appendChild(startButton);
-
-let button = document.createElement('button');
-button.onclick = () => {
-    show_selection(div);
-};
-button.innerText = "Trouver un rendez-vous";
 
 let div = document.createElement('div');
 div.id = "prestoMaDose";
-div.appendChild(button);
-div.appendChild(section);
+div.appendChild(label);
+div.appendChild(input);
+div.appendChild(startButton);
+div.appendChild(startButton);
 document.body.appendChild(div);
