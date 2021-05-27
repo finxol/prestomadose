@@ -120,6 +120,9 @@ document.body.appendChild(script);
 
 let button = document.createElement('button');
 button.setAttribute('onclick', 'desktop()');
+button.onclick = () => {
+    desktop();
+};
 button.innerText = "Trouver un rendez-vous";
 button.id = "prestoMaDose";
 button.setAttribute('style', "position: fixed;bottom: 1rem;right: 1rem;z-index: 11;background-color: #0596de;border: none;border-radius: .5rem;font-size: 1.5rem;padding: .5rem 1rem;color: #ffffff;");
