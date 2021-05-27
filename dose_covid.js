@@ -142,5 +142,4 @@ div.id = "prestoMaDose";
 div.appendChild(label);
 div.appendChild(input);
 div.appendChild(startButton);
-div.appendChild(startButton);
 document.body.appendChild(div);
