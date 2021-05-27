@@ -62,7 +62,7 @@ function desktop(maxDate) {
                 notify(day, dateButton.innerText);
     
                 clearInterval(loop);
-                var restart = setTimeout(() => {
+                let restart = setTimeout(() => {
                     desktop();
                 }, 60000);
                 document.body.addEventListener('click', () => {

@@ -16,7 +16,7 @@ Les instructions ci-dessous permettront de créer un bouton sur le site Doctolib
     ```javascript
     (() => {
         let script = document.createElement('script');
-        script.src = "https://cdn.jsdelivr.net/gh/user038418/prestomadose@v2.0/dose_covid.js";
+        script.src = "https://cdn.jsdelivr.net/gh/user038418/prestomadose@v2.1/dose_covid.js";
         document.body.appendChild(script);
     })();
     ```
@@ -33,8 +33,8 @@ Les instructions ci-dessous permettront de créer un bouton sur le site Doctolib
 
 2. **Cliquer sur l'onglet console**
 
-    <img src="img/console.webp" width="60%" alt="DevTools Console">
+    <img alt="DevTools Console" src="img/console.webp" width="60%">
 
 3. **Coller le code ci-dessus**
 
-    <img src="img/paste.webp" width="60%" alt="Coller le code">
+    <img alt="Coller le code" src="img/paste.webp" width="60%">
