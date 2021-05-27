@@ -114,24 +114,7 @@ function monitor() {
 
 
 
-function show_selection(element) {
-    element.classList.add('show');
-    element.onclick = () => {
-        hide_selection(element);
-    };
-};
-
-function hide_selection(element) {
-    element.classList.remove('show');
-    element.onclick = () => {
-        show_selection(element);
-    };
-};
-
-
-
-
-let link = document.createElement('link');
+link = document.createElement('link');
 link.rel = 'stylesheet'; 
 link.type = 'text/css';
 link.href = 'https://raw.githack.com/user038418/prestomadose/main/style.css'; 
