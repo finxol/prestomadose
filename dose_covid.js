@@ -113,18 +113,56 @@ function monitor() {
 };
 
 
-/*
-let script = document.createElement('script');
-script.src = "https://gist.githubusercontent.com/user038418/b51a70d079434dca50b338aa78e0d6f7/raw/809e1190599036942bb8dc40db1f4ba178865a6e/PrestoMaDose.js";
-document.body.appendChild(script);
 
-let button = document.createElement('button');
-button.setAttribute('onclick', 'desktop()');
-button.onclick = () => {
+function show_selection(element) {
+    element.classList.add('show');
+    element.onclick = () => {
+        hide_selection(element);
+    };
+};
+
+function hide_selection(element) {
+    element.classList.remove('show');
+    element.onclick = () => {
+        show_selection(element);
+    };
+};
+
+
+let css = document.createElement('link');
+css.setAttribute('rel', 'stylesheet');
+css.src = "";
+document.head.appendChild(css);
+
+let label = document.createElement('label');
+label.for = "date";
+label.innerText = "Trouver un rendez-vous avant le :";
+
+let input = document.createElement('input');
+input.type = "date";
+input.name = "date";
+input.value = "2021-06-14";
+input.min = "2021-05-27";
+
+let startButton = document.createElement('button');
+startButton.onclick = () => {
     desktop();
 };
+startButton.innerText = "Lancer la recherche";
+
+let section = document.createElement('section');
+section.appendChild(label);
+section.appendChild(input);
+section.appendChild(startButton);
+
+let button = document.createElement('button');
+button.onclick = () => {
+    show_selection(div);
+};
 button.innerText = "Trouver un rendez-vous";
-button.id = "prestoMaDose";
-button.setAttribute('style', "position: fixed;bottom: 1rem;right: 1rem;z-index: 11;background-color: #0596de;border: none;border-radius: .5rem;font-size: 1.5rem;padding: .5rem 1rem;color: #ffffff;");
-document.body.appendChild(button);
-*/
+
+let div = document.createElement('div');
+div.id = "prestoMaDose";
+div.appendChild(button);
+div.appendChild(section);
+document.body.appendChild(div);
