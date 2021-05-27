@@ -16,7 +16,7 @@ Les instructions ci-dessous permettront de créer un bouton sur le site Doctolib
     ```javascript
     (() => {
         let script = document.createElement('script');
-        script.src = "https://cdn.jsdelivr.net/gh/user038418/prestomadose/dose_covid.js";
+        script.src = "https://cdn.jsdelivr.net/gh/user038418/prestomadose@v2.0/dose_covid.js";
         document.body.appendChild(script);
     })();
     ```
