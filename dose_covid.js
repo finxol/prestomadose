@@ -131,7 +131,7 @@ function hide_selection(element) {
 
 let css = document.createElement('link');
 css.setAttribute('rel', 'stylesheet');
-css.src = "https://raw.githubusercontent.com/user038418/prestomadose/main/style.css";
+css.src = "https://raw.githack.com/user038418/prestomadose/main/style.css";
 document.head.appendChild(css);
 
 let label = document.createElement('label');
