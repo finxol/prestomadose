@@ -16,12 +16,12 @@ Les instructions ci-dessous permettront de créer un bouton sur le site Doctolib
     ```javascript
     (() => {
         let script = document.createElement('script');
-        script.src = "https://cdn.jsdelivr.net/gh/user038418/prestomadose@v2.1/dose_covid.js";
+        script.src = "https://cdn.jsdelivr.net/gh/user038418/prestomadose@v2.2/dose_covid.js";
         document.body.appendChild(script);
     })();
     ```
 
-3. **Cliquez sur "Trouver un rendez-vous" et attendez !**
+3. **Sélectionnez une date, cliquez sur "Trouver un rendez-vous" et attendez !**
    
    Il vous sera probablement demandé d'accepter les notifications, vous devrez alors cliquer sur "Autoriser"
 
