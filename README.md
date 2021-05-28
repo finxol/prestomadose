@@ -22,9 +22,12 @@ Les instructions ci-dessous permettront de créer un bouton sur le site Doctolib
     ```
 
 3. **Cliquez sur "Trouver un rendez-vous" et attendez !**
+   
+   Il vous sera probablement demandé d'accepter les notifications, vous devrez alors cliquer sur "Autoriser"
 
-    Démonstration :
-    ![Démonstration](img/demo.gif)
+ Démonstration :
+
+ ![Démonstration](img/demo.gif)
 
 ### Comment utiliser la console ?
 1. **Cliquer sur `F12`**
@@ -36,5 +39,7 @@ Les instructions ci-dessous permettront de créer un bouton sur le site Doctolib
     <img alt="DevTools Console" src="img/console.webp" width="60%">
 
 3. **Coller le code ci-dessus**
+   
+   Sur Firefox, il est nécessaire de suivre les instructions affichées pour pouvoir coller le code dans la console
 
     <img alt="Coller le code" src="img/paste.webp" width="60%">
