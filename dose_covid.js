@@ -20,7 +20,7 @@ function parse_date(date) {
     let months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
     date = date.split(" ");
     let m = months.indexOf(date[1]) + 1;
-    return new Date(`${m}-${date[0]}-2021`);
+    return new Date(`2021-${m}-${date[0]}`);
 }
 
 function refresh(motive) {
@@ -34,14 +34,10 @@ function refresh(motive) {
 }
 
 
-if (Notification.permission !== "granted") {
-    Notification.requestPermission();
-}
-
-
 // ======= For Desktop version =======
 function desktop(maxDate) {
     document.removeEventListener("visibilitychange", () => document.title = document.title.slice(2));
+
     let motive = document.getElementById('booking_motive');
 
     let loop = setInterval(() => {
@@ -58,9 +54,9 @@ function desktop(maxDate) {
 
             if (date <= maxDate) {
                 dateButton.click();
-    
+
                 notify(day, dateButton.innerText);
-    
+
                 clearInterval(loop);
                 let restart = setTimeout(() => {
                     desktop();
@@ -75,11 +71,8 @@ function desktop(maxDate) {
         } else {
             refresh(motive);
         }
-    }, 4000);
+    }, 3000);
 }
-
-
-
 
 
 // Monitor and log on desktop version
@@ -117,7 +110,7 @@ function monitor() {
 
 
 link = document.createElement('link');
-link.rel = 'stylesheet'; 
+link.rel = 'stylesheet';
 link.type = 'text/css';
 link.href = 'https://rawcdn.githack.com/user038418/prestomadose/50535c56eb12bd395d73efaa6a87c4d913aaa6d5/style.css';
 document.head.appendChild(link);
@@ -134,7 +127,15 @@ input.min = "2021-05-27";
 
 let startButton = document.createElement('button');
 startButton.onclick = () => {
-    desktop(new Date(input.value));
+    if (Notification.permission !== "granted") {
+        Notification.requestPermission();
+    }
+    if (document.querySelector('select#booking_motive_category')) {
+        refresh(document.querySelector('select#booking_motive_category'));
+    }
+    setTimeout(() => {
+        desktop(new Date(input.value));
+    }, 500);
 };
 startButton.innerText = "Lancer la recherche";
 
