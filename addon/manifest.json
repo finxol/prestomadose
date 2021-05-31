@@ -1,0 +1,20 @@
+{
+
+  "manifest_version": 2,
+  "name": "Presto Ma Dose",
+  "version": "2.2",
+
+  "description": "Prise de rendez-vous automatisée pour la vaccination COVID sur Doctolib",
+
+  "icons": {
+    "48": "img/icon.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.doctolib.fr/*vaccination*"],
+      "js": ["script.js"]
+    }
+  ]
+
+}
