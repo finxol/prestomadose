@@ -47,3 +47,12 @@ Une extension pour Firefox est en cours d'acheminement. La démarche d'utilisati
    Sur Firefox, il est nécessaire de suivre les instructions affichées pour pouvoir coller le code dans la console
    
    <img alt="Coller le code" src="img/paste.webp" width="60%">
+
+
+----
+### Package Extension
+
+Dans le dosier, lancer :
+```
+zip -r -FS prestomadose-<version number>.zip dose_covid.js manifest.json img/icon.png
+```
