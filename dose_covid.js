@@ -112,7 +112,7 @@ function monitor() {
 link = document.createElement('link');
 link.rel = 'stylesheet';
 link.type = 'text/css';
-link.href = 'https://rawcdn.githack.com/user038418/prestomadose/50535c56eb12bd395d73efaa6a87c4d913aaa6d5/style.css';
+link.href = 'https://rawcdn.githack.com/user038418/prestomadose/01fc594450dffaee86ecb07366dbb177b1449d92/style.css';
 document.head.appendChild(link);
 
 let label = document.createElement('label');
@@ -136,6 +136,10 @@ startButton.onclick = () => {
     setTimeout(() => {
         desktop(new Date(input.value));
     }, 500);
+    startButton.classList.add("check");
+    setTimeout(() => {
+        startButton.classList.remove("check");
+    }, 3000);
 };
 startButton.innerText = "Lancer la recherche";
 
