@@ -23,6 +23,8 @@ Une extension est disponible. Il vous suffit de l'installer pour utiliser Presto
    
    La zone de selection de date et de démarrage devrait apparaître en bas à droite sur la page
 
+   N'oubliez pas d'autoriser les notifications
+
 ### Sur Chrome, Safari, Edge...
 1. **Ouvrir la page Doctolib d'un centre de vaccination**
 
@@ -41,10 +43,10 @@ Une extension est disponible. Il vous suffit de l'installer pour utiliser Presto
 3. **Sélectionnez une date, cliquez sur "Trouver un rendez-vous" et attendez !**
    
    Il vous sera probablement demandé d'accepter les notifications, vous devrez alors cliquer sur "Autoriser"
-   
-   Démonstration :
-   
-   ![Démonstration](img/demo.gif)
+
+### Démonstration :
+
+![Démonstration](img/demo.gif)
 
 ### Comment utiliser la console ?
 
