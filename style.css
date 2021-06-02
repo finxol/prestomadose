@@ -18,8 +18,18 @@ div#prestoMaDose button {
     font-size: 1.5rem;
     border: none;
     border-radius: .5rem;
+    transition-duration: .3s;
     background-color: #ffffff;
     color: #0596de;
+}
+
+div#prestoMaDose button.check {
+    color: #155313;
+    background-color: #cdeccc;
+}
+
+div#prestoMaDose button.check:before {
+    content: "✓ ";
 }
 
 div#prestoMaDose input {
