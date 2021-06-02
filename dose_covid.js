@@ -112,7 +112,7 @@ function monitor() {
 link = document.createElement('link');
 link.rel = 'stylesheet';
 link.type = 'text/css';
-link.href = 'https://rawcdn.githack.com/user038418/prestomadose/01fc594450dffaee86ecb07366dbb177b1449d92/style.css';
+link.href = 'https://rawcdn.githack.com/user038418/prestomadose/v2.3/style.css';
 document.head.appendChild(link);
 
 let label = document.createElement('label');
