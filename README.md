@@ -4,12 +4,26 @@ Outil de recherche automatisée de rendez-vous pour la vaccination contre la COV
 
 Les rendez-vous sont cherchés directement sur le site de Doctolib pour éviter tout temps de retard
 
-## Utiliser sur Doctolib
+## Comment utiliser Presto Ma Dose ?
 
 Les instructions ci-dessous permettront de créer un bouton sur le site Doctolib qui lance la recherche automatique de rendez-vous
 
-Une extension pour Firefox est en cours d'acheminement. La démarche d'utilisation sera alors bien plus simple.
+### Sur Firefox
 
+Une extension est disponible. Il vous suffit de l'installer pour utiliser Presto Ma Dose sur une page de reservation vaccination Doctolib.
+
+1. **Installer l'extension**
+
+   Aller sur [addons.mozilla.org](https://addons.mozilla.org/fr-FR/firefox/addon/presto-ma-dose/)
+   et cliquer sur "Ajouter à Firefox"
+   
+   [![Ajouter à Firefox](img/installer_extension.webp)](https://addons.mozilla.org/fr-FR/firefox/addon/presto-ma-dose/)
+
+2. **Aller sur une page de centre de vaccination sur Doctolib**
+   
+   La zone de selection de date et de démarrage devrait apparaître en bas à droite sur la page
+
+### Sur Chrome, Safari, Edge...
 1. **Ouvrir la page Doctolib d'un centre de vaccination**
 
 2. **Copier ce code et lancez-le dans la console :**
@@ -52,7 +66,7 @@ Une extension pour Firefox est en cours d'acheminement. La démarche d'utilisati
 ----
 ### Package Extension
 
-Dans le dosier, lancer :
+Dans le dossier, lancer :
 ```
 zip -r -FS prestomadose-<version number>.zip dose_covid.js manifest.json img/icon.png
 ```
