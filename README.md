@@ -1,5 +1,8 @@
 # Presto Ma Dose
 
+[![Latest Release](https://img.shields.io/github/v/release/user038418/prestomadose)](https://github.com/user038418/prestomadose/releases)
+[![License](https://img.shields.io/github/license/user038418/prestomadose)](https://www.gnu.org/licenses/gpl-3.0.fr.html)
+
 Outil de recherche automatisée de rendez-vous pour la vaccination contre la COVID-19
 
 Les rendez-vous sont cherchés directement sur le site de Doctolib pour éviter tout temps de retard
