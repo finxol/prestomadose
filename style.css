@@ -35,16 +35,19 @@ div#prestoMaDose button.check:before {
     content: "✓ ";
 }
 
-div#prestoMaDose input,
-div#prestoMaDose select {
+div#prestoMaDose select,
+div#prestoMaDose input {
     margin: 1rem;
+    font-family: "Roboto", arial, sans-serif;
+    font-size: 1.5rem;
+    color: #435f71;
+    padding: 0 .5rem;
     height: 3.5rem;
-    padding: 0 16px;
     box-sizing: border-box;
+}
+
+div#prestoMaDose input {
     border: 0;
     border-radius: .5rem;
     background-color: #ffffff;
-    font-family: "Roboto", arial, sans-serif;
-    font-size: 14px;
-    color: #435f71;
 }
