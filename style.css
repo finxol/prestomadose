@@ -2,10 +2,13 @@ div#prestoMaDose {
     position: fixed;
     bottom: 0;
     right: 0;
+    left: 0;
     z-index: 11;
     display: flex;
-    flex-direction: column;
-    padding: 1rem 2rem;
+    flex-direction: row;
+    align-items: last baseline;
+    justify-content: center;
+    padding: 1rem 2rem .3rem;
     border-radius: .5rem 0 0;
     font-size: 1.6rem;
     background-color: #0596de;
@@ -32,7 +35,8 @@ div#prestoMaDose button.check:before {
     content: "✓ ";
 }
 
-div#prestoMaDose input {
+div#prestoMaDose input,
+div#prestoMaDose select {
     margin: 1rem;
     height: 3.5rem;
     padding: 0 16px;
