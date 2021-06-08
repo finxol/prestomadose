@@ -17,7 +17,7 @@ function notify(day, time) {
 }
 
 function parse_date(date) {
-    let months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+    let months = ["janvier", "février", "mars", "avril", "mai", "juin", "juil.", "août", "sept.", "octobre", "novembre", "décembre"];
     date = date.split(" ");
     let m = months.indexOf(date[1]) + 1;
     return new Date(`2021-${m}-${date[0]}`);
@@ -35,7 +35,7 @@ function refresh(motive) {
 
 
 // ======= For Desktop version =======
-function desktop(maxDate) {
+function desktop(maxDate, type=0) {
     document.removeEventListener("visibilitychange", () => document.title = document.title.slice(2));
 
     let motive = document.getElementById('booking_motive');
@@ -52,7 +52,16 @@ function desktop(maxDate) {
             let day = dayColumn.querySelector("div.availabilities-day-date").innerText;
             let date = parse_date(day);
 
-            if (date <= maxDate) {
+            let dateTest;
+            if (type === 0 && date < maxDate) {
+                dateTest = true;
+            } else if (type === 2 && date > maxDate) {
+                dateTest = true;
+            } else if (type === 1) {
+                dateTest = true;
+            }
+
+            if (dateTest) {
                 dateButton.click();
 
                 notify(day, dateButton.innerText);
@@ -109,21 +118,36 @@ function monitor() {
 
 
 
+
+
 link = document.createElement('link');
 link.rel = 'stylesheet';
 link.type = 'text/css';
-link.href = 'https://rawcdn.githack.com/user038418/prestomadose/v2.3/style.css';
+link.href = 'https://raw.githack.com/user038418/prestomadose/main/style.css';
 document.head.appendChild(link);
 
 let label = document.createElement('label');
-label.for = "date";
-label.innerText = "Trouver un rendez-vous avant le : ";
+label.for = "type";
+label.innerText = "Trouver un rendez-vous... ";
 
-let input = document.createElement('input');
-input.type = "date";
-input.name = "date";
-input.value = "2021-06-14";
-input.min = "2021-05-27";
+let select = document.createElement('select');
+select.classList.add("dl-select");
+select.classList.add('form-control');
+select.classList.add('booking-compact-select');
+
+let options = ["avant", "pour"/*, "apres"*/];
+options.forEach((type) => {
+    let option = document.createElement('option')
+    option.value = type;
+    option.innerText = `${type} le`;
+    select.appendChild(option);
+});
+
+let inputDate = document.createElement('input');
+inputDate.type = "date";
+inputDate.name = "date";
+inputDate.value = "2021-06-14";
+inputDate.min = "2021-05-27";
 
 let startButton = document.createElement('button');
 startButton.onclick = () => {
@@ -134,8 +158,9 @@ startButton.onclick = () => {
         refresh(document.querySelector('select#booking_motive_category'));
     }
     setTimeout(() => {
-        desktop(new Date(input.value));
+        desktop(new Date(inputDate.value), select.selectedIndex);
     }, 500);
+
     startButton.classList.add("check");
     setTimeout(() => {
         startButton.classList.remove("check");
@@ -147,6 +172,7 @@ startButton.innerText = "Lancer la recherche";
 let div = document.createElement('div');
 div.id = "prestoMaDose";
 div.appendChild(label);
-div.appendChild(input);
+div.appendChild(select);
+div.appendChild(inputDate);
 div.appendChild(startButton);
 document.body.appendChild(div);
