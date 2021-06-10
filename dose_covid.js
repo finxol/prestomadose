@@ -43,28 +43,41 @@ function desktop(maxDate, type=0) {
     let loop = setInterval(() => {
         // If the availability is for later ("Prochain rendez-vous le ...")
         let later = document.querySelector('div.dl-desktop-availabilities-overlay div.availabilities-message button.dl-button-small-primary.dl-button.dl-button-size-normal');
-        let dateButton = document.querySelector("div.availabilities-slot");
+        let dateButtons = document.querySelectorAll("div.availabilities-slot");
 
         if (later) {
             later.click()
-        } else if (dateButton) {
-            let dayColumn = dateButton.parentElement.parentElement;
+        } else if (dateButtons[0]) {
+            let dateIndex = 0;
+            let wait = false;
+
+            let dayColumn = dateButtons[dateIndex].parentElement.parentElement;
             let day = dayColumn.querySelector("div.availabilities-day-date").innerText;
             let date = parse_date(day);
 
-            let dateTest;
-            if (type === 0 && date < maxDate) {
-                dateTest = true;
-            } else if (type === 2 && date > maxDate) {
-                dateTest = true;
-            } else if (type === 1) {
-                dateTest = true;
+            if (type === 1) {
+                if (maxDate - date > 259200000) {
+                    // Show the next set of dates
+                    let clickEvent = new MouseEvent("click", {"bubbles": true});
+                    document.querySelectorAll('svg.dl-icon.availabilities-pagination-arrow.dl-icon-large')[1].dispatchEvent(clickEvent);
+                    wait = true;
+                } else {
+                    while (((maxDate - date > 0) && type === 1) || ((maxDate - date >= 0) && type === 2)) {
+                        // Look at the next day
+                        console.log("next day");
+                        dateIndex += 1;
+                        dayColumn = dateButtons[dateIndex].parentElement.parentElement;
+                        day = dayColumn.querySelector("div.availabilities-day-date").innerText;
+                        date = parse_date(day);
+                    }
+                }
             }
 
-            if (dateTest) {
-                dateButton.click();
 
-                notify(day, dateButton.innerText);
+            if ((type === 0 && date < maxDate) || (type === 1 && !(date > maxDate || date < maxDate))) {
+                dateButtons[dateIndex].click();
+
+                notify(day, dateButtons[dateIndex].innerText);
 
                 clearInterval(loop);
                 let restart = setTimeout(() => {
@@ -72,9 +85,8 @@ function desktop(maxDate, type=0) {
                 }, 60000);
                 document.body.addEventListener('click', () => {
                     clearTimeout(restart);
-                    document.body.removeEventListener('click');
-                }, true);
-            } else {
+                }, {once: true});
+            } else if (!wait) {
                 refresh(motive);
             }
         } else {

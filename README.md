@@ -33,12 +33,12 @@ Une extension est disponible. Il vous suffit de l'installer pour utiliser Presto
 
 2. **Copier ce code et lancez-le dans la console :**
    
-    [Comment utiliser la console ?](https://github.com/user038418/prestomadose/#comment-utiliser-la-console-)
+    [Comment utiliser la console ?](#comment-utiliser-la-console-)
 
     ```javascript
     (() => {
         let script = document.createElement('script');
-        script.src = "https://cdn.jsdelivr.net/gh/user038418/prestomadose@v3.0/dose_covid.js";
+        script.src = "https://cdn.jsdelivr.net/gh/user038418/prestomadose@v3.0.1/dose_covid.js";
         document.body.appendChild(script);
     })();
     ```
