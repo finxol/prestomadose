@@ -38,7 +38,7 @@ Une extension est disponible. Il vous suffit de l'installer pour utiliser Presto
     ```javascript
     (() => {
         let script = document.createElement('script');
-        script.src = "https://cdn.jsdelivr.net/gh/user038418/prestomadose@v3.0.1/dose_covid.js";
+        script.src = "https://cdn.jsdelivr.net/gh/user038418/prestomadose@v2.3/dose_covid.js";
         document.body.appendChild(script);
     })();
     ```
