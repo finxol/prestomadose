@@ -52,3 +52,11 @@ div#prestoMaDose input {
     border-radius: .5rem;
     background-color: #ffffff;
 }
+
+div#prestoMaDose button#stop {
+    position: fixed;
+    right: 1.7rem;
+    bottom: 1.7rem;
+    background: #de7070;
+    color: #ffffff;
+}
