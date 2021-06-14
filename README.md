@@ -2,6 +2,7 @@
 
 [![Latest Release](https://img.shields.io/github/v/release/user038418/prestomadose)](https://github.com/user038418/prestomadose/releases)
 [![License](https://img.shields.io/github/license/user038418/prestomadose)](https://www.gnu.org/licenses/gpl-3.0.fr.html)
+[![GitHub issues](https://img.shields.io/github/issues/user038418/prestomadose)](https://github.com/user038418/prestomadose/issues)
 
 Outil de recherche automatisée de rendez-vous pour la vaccination contre la COVID-19
 
@@ -38,7 +39,7 @@ Une extension est disponible. Il vous suffit de l'installer pour utiliser Presto
     ```javascript
     (() => {
         let script = document.createElement('script');
-        script.src = "https://cdn.jsdelivr.net/gh/user038418/prestomadose@v3.0.1/dose_covid.js";
+        script.src = "https://cdn.jsdelivr.net/gh/user038418/prestomadose@v2.3/dose_covid.js";
         document.body.appendChild(script);
     })();
     ```
