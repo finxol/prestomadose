@@ -123,7 +123,7 @@ class Search {
         let link = document.createElement('link');
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = 'https://raw.githack.com/user038418/prestomadose/main/style.css';
+        link.href = 'https://cdn.jsdelivr.net/gh/user038418/prestomadose@v4.0/style.css';
         document.head.appendChild(link);
 
         let label = document.createElement('label');
@@ -200,10 +200,3 @@ class Search {
         document.body.appendChild(div);
     }
 }
-
-
-
-
-
-let search = new Search();
-search.init();

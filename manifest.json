@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "Presto Ma Dose",
-  "version": "3.0.1",
+  "version": "4.0",
 
   "description": "Prise de rendez-vous automatisée pour la vaccination COVID sur Doctolib",
 
