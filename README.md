@@ -20,11 +20,11 @@ Une extension est disponible. Il vous suffit de l'installer pour utiliser Presto
 
    Aller sur [addons.mozilla.org](https://addons.mozilla.org/fr-FR/firefox/addon/presto-ma-dose/)
    et cliquer sur "Ajouter à Firefox"
-   
+
    [![Ajouter à Firefox](img/installer_extension.webp)](https://addons.mozilla.org/fr-FR/firefox/addon/presto-ma-dose/)
 
 2. **Aller sur une page de centre de vaccination sur Doctolib**
-   
+
    La zone de selection de date et de démarrage devrait apparaître en bas à droite sur la page
 
    N'oubliez pas d'autoriser les notifications
@@ -33,8 +33,8 @@ Une extension est disponible. Il vous suffit de l'installer pour utiliser Presto
 1. **Ouvrir la page Doctolib d'un centre de vaccination**
 
 2. **Copier ce code et lancez-le dans la console :**
-   
-    [Comment utiliser la console ?](#comment-utiliser-la-console-)
+
+   [Comment utiliser la console ?](#comment-utiliser-la-console-)
 
     ```javascript
     (() => {
@@ -49,7 +49,7 @@ Une extension est disponible. Il vous suffit de l'installer pour utiliser Presto
     ```
 
 3. **Sélectionnez une date, cliquez sur "Trouver un rendez-vous" et attendez !**
-   
+
    Il vous sera probablement demandé d'accepter les notifications, vous devrez alors cliquer sur "Autoriser"
 
 ### Démonstration :
@@ -59,17 +59,17 @@ Une extension est disponible. Il vous suffit de l'installer pour utiliser Presto
 ### Comment utiliser la console ?
 
 1. **Cliquer sur `F12`**
-   
+
    <img src="img/f12_key.webp" width="60%" alt="F12 Key">
 
 2. **Cliquer sur l'onglet console**
-   
+
    <img alt="DevTools Console" src="img/console.webp" width="60%">
 
 3. **Coller le code ci-dessus**
-   
+
    Sur Firefox, il est nécessaire de suivre les instructions affichées pour pouvoir coller le code dans la console
-   
+
    <img alt="Coller le code" src="img/paste.webp" width="60%">
 
 
