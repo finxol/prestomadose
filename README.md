@@ -41,8 +41,10 @@ Une extension est disponible. Il vous suffit de l'installer pour utiliser Presto
         let script = document.createElement('script');
         script.src = "https://cdn.jsdelivr.net/gh/user038418/prestomadose@v4.0/dose_covid.min.js";
         document.body.appendChild(script);
-        let search = new Search();
-        search.init();
+        script.onload = () => {
+           let search = new Search();
+           search.init();
+        }
     })();
     ```
 
