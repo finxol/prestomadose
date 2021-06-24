@@ -1,13 +1,20 @@
 class Search {
     constructor() {
-        this.motive = document.getElementById('booking_motive');
+
     }
 
     parse_date(date) {
         let months = ["jan.", "fév.", "mars", "avril", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
         date = date.split(" ");
-        let m = months.indexOf(date[1]) + 1;
-        return new Date(`2021-${m}-${date[0]}`);
+        let m = `${months.indexOf(date[1]) + 1}`;
+        let day = `${date[0]}`;
+        if (day.length === 1) {
+            day = `0${day}`;
+        }
+        if (m.length === 1) {
+            m = `0${m}`;
+        }
+        return new Date(`2021-${m}-${day}T00:00:00`);
     }
 
     notify(day, time) {
@@ -62,24 +69,19 @@ class Search {
                 let dayColumn = dateButtons[dateIndex].parentElement.parentElement;
                 let day = dayColumn.querySelector("div.availabilities-day-date").innerText;
                 let date = this.parse_date(day);
-                console.log(date);
 
                 if (this.filterType === 1 || this.filterType === 2) {
                     if (this.targetDate - date > 259200000) {
                         // Show the next set of dates
                         wait = this.next_dates;
                     } else {
-                        while (((this.targetDate - date <= 86400000) && this.filterType === 1) || ((this.targetDate - date >= 0) && this.filterType === 2)) {
+                        while (((this.targetDate - date > 0) && this.filterType === 1) || ((this.targetDate - date >= 0) && this.filterType === 2)) {
                             // Look at the next day
                             dateIndex += 1;
-                            console.log("test: " + ((this.targetDate - date > 0) && this.filterType === 1));
-                            console.log("next day, dateIndex: " + dateIndex);
-                            console.log(dateButtons.length);
                             try {
                                 dayColumn = dateButtons[dateIndex].parentElement.parentElement;
                                 day = dayColumn.querySelector("div.availabilities-day-date").innerText;
                                 date = this.parse_date(day);
-                                console.log(date);
                             } catch (err) {
                                 wait = this.next_dates;
                                 throw err;
@@ -88,6 +90,8 @@ class Search {
                         }
                     }
                 }
+
+                console.log("if-test: " + (this.filterType === 1 && !(date > this.targetDate || date < this.targetDate)));
 
 
                 if ((this.filterType === 0 && date < this.targetDate) || (this.filterType === 1 && !(date > this.targetDate || date < this.targetDate)) || (this.filterType === 2 && date > this.targetDate)) {
@@ -165,7 +169,8 @@ class Search {
             }
 
             setTimeout(() => {
-                this.targetDate = new Date(inputDate.value);
+                this.motive = document.getElementById('booking_motive');
+                this.targetDate = new Date(`${inputDate.value}T00:00:00`);
                 this.filterType = selectDate.selectedIndex;
                 this.doseNumber = selectDose.selectedIndex;
                 this.desktop();
