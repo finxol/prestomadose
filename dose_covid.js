@@ -159,7 +159,7 @@ class Search {
         let link = document.createElement('link');
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = 'https://cdn.jsdelivr.net/gh/user038418/prestomadose@v4.0/style.css';
+        link.href = 'https://cdn.jsdelivr.net/gh/user038418/prestomadose@v4.1.0/style.css';
         document.head.appendChild(link);
 
         let label = document.createElement('label');
