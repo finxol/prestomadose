@@ -38,6 +38,7 @@ div#prestoMaDose button.check:before {
 div#prestoMaDose select {
     margin: 1rem;
     height: 3.5rem;
+    max-width: 25rem;
 }
 
 div#prestoMaDose input {

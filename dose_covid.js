@@ -1,9 +1,14 @@
 class Search {
     constructor() {
-
+        this.today = new Date();
     }
 
-    parse_date(date) {
+    /**
+     * Parse a date string to a date object
+     * @param {String} date Date to give to the object
+     * @returns {Date} Date object set to the needed time
+     */
+    parse_date_string(date) {
         let months = ["jan.", "fév.", "mars", "avril", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
         date = date.split(" ");
         let m = `${months.indexOf(date[1]) + 1}`;
@@ -17,6 +22,23 @@ class Search {
         return new Date(`2021-${m}-${day}T00:00:00`);
     }
 
+    /**
+     * Parse a date string to a date object
+     * @param {Date} date Date object to parse into a string
+     * @return {String} Date string in the format yyyy/mm/dd
+     */
+    parse_date_object(date) {
+        let day = date.getDate();
+        let month = date.getMonth();
+        let year = date.getFullYear();
+        return `${year}-${month +1}-${day}`;
+    }
+
+    /**
+     * Create a notification to inform a dose has been found
+     * @param {String} day Day of the found dose
+     * @param {String} time Time of the found dose
+     */
     notify(day, time) {
         let found = new Notification('Dose trouvée !', {
             body: `Trouvé une dose le ${day} à ${time}`,
@@ -34,17 +56,25 @@ class Search {
             }
         });
     }
+
+    /**
+     * Refresh the results list
+     */
     refresh() {
         console.log("refresh");
         let changeEvent = new Event("change", {"bubbles": true});
         this.motive.selectedIndex = 0;
         this.motive.dispatchEvent(changeEvent);
         setTimeout(() => {
-            this.motive.selectedIndex = this.doseNumber +1;
+            this.motive.selectedIndex = this.doseNumber;
             this.motive.dispatchEvent(changeEvent);
         }, 500);
     }
 
+    /**
+     * Load the next set of dates
+     * @returns {boolean} always true
+     */
     get next_dates() {
         console.log("next set of dates");
         let clickEvent = new MouseEvent("click", {"bubbles": true});
@@ -52,12 +82,15 @@ class Search {
         return true;
     }
 
+    /**
+     * Controls the appointment search
+     */
     desktop() {
         document.removeEventListener("visibilitychange", () => document.title = document.title.slice(2));
 
         let loop = setInterval(() => {
             // If the availability is for later ("Prochain rendez-vous le ...")
-            let later = document.querySelector('div.dl-desktop-availabilities-overlay div.availabilities-message button.dl-button-small-primary.dl-button.dl-button-size-normal');
+            let later = document.querySelector('#booking-content > div.booking.booking-compact-layout > div:nth-child(5) > div > div.dl-layout-container.dl-layout-spacing-xs-0 > div.dl-step-children.dl-layout-item.dl-layout-size-xs-12.dl-layout-size-sm-12 > div > div > div:nth-child(1) > div > div > div:nth-child(2) > div > div > div > div > div > div > div > button > span');
             let dateButtons = document.querySelectorAll("div.availabilities-slot");
 
             if (later) {
@@ -68,7 +101,7 @@ class Search {
 
                 let dayColumn = dateButtons[dateIndex].parentElement.parentElement;
                 let day = dayColumn.querySelector("div.availabilities-day-date").innerText;
-                let date = this.parse_date(day);
+                let date = this.parse_date_string(day);
 
                 if (this.filterType === 1 || this.filterType === 2) {
                     if (this.targetDate - date > 259200000) {
@@ -81,7 +114,7 @@ class Search {
                             try {
                                 dayColumn = dateButtons[dateIndex].parentElement.parentElement;
                                 day = dayColumn.querySelector("div.availabilities-day-date").innerText;
-                                date = this.parse_date(day);
+                                date = this.parse_date_string(day);
                             } catch (err) {
                                 wait = this.next_dates;
                                 throw err;
@@ -119,6 +152,9 @@ class Search {
         }, {once: true});
     }
 
+    /**
+     * Initialise the bottom control bar
+     */
     init() {
         let link = document.createElement('link');
         link.rel = 'stylesheet';
@@ -135,11 +171,11 @@ class Search {
         selectDose.classList.add('form-control');
         selectDose.classList.add('booking-compact-select');
 
-        let optionsDose = ["1ère", "2ème", "3ème"];
-        optionsDose.forEach((type) => {
+        let booking_motive = document.querySelectorAll('select#booking_motive option');
+        booking_motive.forEach((type) => {
             let option = document.createElement('option')
-            option.value = type;
-            option.innerText = `${type} dose`;
+            option.value = type.value;
+            option.innerText = type.textContent;
             selectDose.appendChild(option);
         });
 
@@ -159,8 +195,8 @@ class Search {
         let inputDate = document.createElement('input');
         inputDate.type = "date";
         inputDate.name = "date";
-        inputDate.value = "2021-07-14";
-        inputDate.min = "2021-05-27";
+        inputDate.value = this.parse_date_object(this.today);
+        inputDate.min = this.parse_date_object(this.today);
 
         let startButton = document.createElement('button');
         startButton.onclick = () => {
