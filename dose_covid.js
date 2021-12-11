@@ -124,10 +124,12 @@ class Search {
                     }
                 }
 
-                console.log("if-test: " + (this.filterType === 1 && !(date > this.targetDate || date < this.targetDate)));
+                let checkBefore = (this.filterType === 0 && date < this.targetDate);
+                let checkOn = (this.filterType === 1 && !(date > this.targetDate || date < this.targetDate));
+                let checkAfter = (this.filterType === 2 && date > this.targetDate);
+                console.log("if-test: " + (checkBefore || checkOn || checkAfter));
 
-
-                if ((this.filterType === 0 && date < this.targetDate) || (this.filterType === 1 && !(date > this.targetDate || date < this.targetDate)) || (this.filterType === 2 && date > this.targetDate)) {
+                if (checkBefore || checkOn || checkAfter) {
                     dateButtons[dateIndex].click();
 
                     this.notify(day, dateButtons[dateIndex].innerText);
