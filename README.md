@@ -8,6 +8,16 @@ Outil de recherche automatisée de rendez-vous pour la vaccination contre la COV
 
 Les rendez-vous sont cherchés directement sur le site de Doctolib pour éviter tout temps de retard
 
+
+1. [Comment utiliser PrestoMaDose ?](#comment-utiliser-presto-ma-dose-)
+   
+   1.a. [Sur Firefox](#sur-firefox)
+   
+   1.b. [Sur Chrome, Safari, Edge...](#sur-chrome-safari-edge)
+
+2. [Comment contribuer ?](#comment-contribuer-)
+
+
 ## Comment utiliser Presto Ma Dose ?
 
 Les instructions ci-dessous permettront de créer un bouton sur le site Doctolib qui lance la recherche automatique de rendez-vous
@@ -71,6 +81,18 @@ Une extension est disponible. Il vous suffit de l'installer pour utiliser Presto
    Sur Firefox, il est nécessaire de suivre les instructions affichées pour pouvoir coller le code dans la console
 
    <img alt="Coller le code" src="img/paste.webp" width="60%">
+
+
+
+## Comment contribuer ?
+
+Vous avez trouvé un bug en utilisant PrestoMaDose ?
+
+Ouvrez un bug report dans l'onglet [Issues](https://github.com/finxol/prestomadose/issues) sur cette page.
+
+Avant d'ouvrir une nouvelle issue, assurez-vous qu'une autre décrivant le même problème ne soit pas déjà ouverte.
+
+Merci !
 
 
 ----
