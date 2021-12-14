@@ -9,17 +9,26 @@ class Search {
      * @returns {Date} Date object set to the needed time
      */
     parse_date_string(date) {
+        let day, month;
+        let year = this.today.getFullYear();
         let months = ["jan.", "fév.", "mars", "avril", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
-        date = date.split(" ");
-        let m = `${months.indexOf(date[1]) + 1}`;
-        let day = `${date[0]}`;
+        [ day, month ] = date.split(" ");
+        let m = `${months.indexOf(month) + 1}`;
+
+        // Day styling
         if (day.length === 1) {
             day = `0${day}`;
         }
+        // Month styling
         if (m.length === 1) {
             m = `0${m}`;
         }
-        return new Date(`2021-${m}-${day}T00:00:00`);
+        // Set to next year if found month < current month
+        if (m < this.today.getMonth()) {
+            year++;
+        }
+
+        return new Date(`${year}-${m}-${day}T00:00:00`);
     }
 
     /**
@@ -42,7 +51,7 @@ class Search {
     notify(day, time) {
         let found = new Notification('Dose trouvée !', {
             body: `Trouvé une dose le ${day} à ${time}`,
-            icon: 'https://socoemergency.org/wp-content/uploads/2020/11/icon-vaccine.png'
+            icon: 'https://cdn.jsdelivr.net/gh/user038418/prestomadose/img/icon-vaccine.png'
         });
         setTimeout(() => {
             found.close()
