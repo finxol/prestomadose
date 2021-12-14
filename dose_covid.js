@@ -247,3 +247,8 @@ class Search {
         document.body.appendChild(div);
     }
 }
+
+(() => {
+    let search = new Search();
+    search.init();
+})();
