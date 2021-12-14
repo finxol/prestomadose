@@ -11,9 +11,14 @@ class Search {
     parse_date_string(date) {
         let day, month;
         let year = this.today.getFullYear();
-        let months = ["jan.", "fév.", "mars", "avril", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
+        let months = ["janv.", "févr.", "mars", "avril", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
         [ day, month ] = date.split(" ");
         let m = `${months.indexOf(month) + 1}`;
+
+        // Error if format incorrect
+        if (m === '-1') {
+            console.error(`parse_date_string: date '${date}' is of invalid format`);
+        }
 
         // Day styling
         if (day.length === 1) {
@@ -248,7 +253,7 @@ class Search {
     }
 }
 
-(() => {
+setTimeout(() => {
     let search = new Search();
     search.init();
-})();
+}, 250);
