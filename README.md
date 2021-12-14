@@ -49,7 +49,7 @@ Une extension est disponible. Il vous suffit de l'installer pour utiliser Presto
     ```javascript
     (() => {
         let script = document.createElement('script');
-        script.src = "https://cdn.jsdelivr.net/gh/user038418/prestomadose@v4.1.0/dose_covid.min.js";
+        script.src = "https://cdn.jsdelivr.net/gh/user038418/prestomadose@v4.1.1/dose_covid.min.js";
         document.body.appendChild(script);
     })();
     ```
